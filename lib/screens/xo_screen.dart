@@ -15,11 +15,9 @@ class _XoScreenState extends State<XoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.deepOrange,
-      //   foregroundColor: Colors.white,
-      //   title: Text("XO Game"),
-      // ),
+      appBar: AppBar(       
+        title: Text("XO Game"),
+      ),
 
       body: SingleChildScrollView(
         child: Column(

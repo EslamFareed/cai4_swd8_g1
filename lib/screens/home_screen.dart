@@ -9,11 +9,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.deepOrange,
-      //   foregroundColor: Colors.white,
-      //   title: Text("Home"),
-      // ),
+      appBar: AppBar(       
+        title: Text("Home"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

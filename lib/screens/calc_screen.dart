@@ -13,7 +13,7 @@ class _CalcScreenState extends State<CalcScreen> {
     // int number1 = int.parse("12");
 
     return Scaffold(
-      // appBar: AppBar(backgroundColor: Colors.deepOrange, title: Text("Calc")),
+      appBar: AppBar(title: Text("Calc")),
       body: Column(
         children: [
           Row(
@@ -21,26 +21,11 @@ class _CalcScreenState extends State<CalcScreen> {
             children: [
               // SizedBox(width: 100, child: TextField()),
               // SizedBox(width: 100, child: TextField()),
-              Expanded(
-                flex: 3,
-                child: TextField(
-                  decoration: InputDecoration(border: OutlineInputBorder()),
-                ),
-              ),
+              Expanded(flex: 3, child: TextField()),
               SizedBox(width: 5),
-              Expanded(
-                flex: 2,
-                child: TextField(
-                  decoration: InputDecoration(border: OutlineInputBorder()),
-                ),
-              ),
+              Expanded(flex: 2, child: TextField()),
               SizedBox(width: 5),
-              Expanded(
-                flex: 2,
-                child: TextField(
-                  decoration: InputDecoration(border: OutlineInputBorder()),
-                ),
-              ),
+              Expanded(flex: 2, child: TextField()),
             ],
           ),
           SizedBox(height: 50),
