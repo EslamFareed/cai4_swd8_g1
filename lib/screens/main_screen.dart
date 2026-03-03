@@ -43,12 +43,6 @@ import 'xo_screen.dart';
 //   }
 // }
 
-import 'package:cai4_swd8_g1/screens/calc_screen.dart';
-import 'package:cai4_swd8_g1/screens/home_screen.dart';
-import 'package:cai4_swd8_g1/screens/profile_screen.dart';
-import 'package:cai4_swd8_g1/screens/xo_screen.dart';
-import 'package:flutter/material.dart';
-
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
   @override
@@ -65,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(     
       body: screens[index],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (newIndex) {

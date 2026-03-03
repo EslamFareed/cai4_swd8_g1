@@ -4,13 +4,57 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(       
+      key: scaffoldKey,
+      // drawer: Container(width: 100, height: 100, color: Colors.white),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("Ahmed"),
+              accountEmail: Text("ahmed@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage(
+                  "assets/images/image-optimisation-scaled.jpg",
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                children: [
+                  ListTile(leading: Icon(Icons.home), title: Text("Home")),
+                  ListTile(leading: Icon(Icons.person), title: Text("Profile")),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text("Settings"),
+                  ),
+                ],
+              ),
+            ),
+
+            Divider(),
+
+            ListTile(leading: Icon(Icons.logout), title: Text("Logout")),
+          ],
+        ),
+      ),
+      // endDrawer: Drawer(),
+      appBar: AppBar(
         title: Text("Home"),
+        leading: IconButton(
+          onPressed: () {
+            scaffoldKey.currentState?.openDrawer();
+            // scaffoldKey.currentState?.openEndDrawer();
+            // Scaffold.of(context).openDrawer();
+          },
+          icon: Icon(Icons.menu_open),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -22,6 +66,14 @@ class HomeScreen extends StatelessWidget {
               options: CarouselOptions(autoPlay: true, enlargeCenterPage: true),
             ),
 
+            Row(
+              children: [
+                Text(
+                  "Categories",
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ],
+            ),
             SizedBox(
               height: 50,
               child: ListView.builder(
@@ -34,12 +86,20 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: Colors.deepOrange),
                   ),
-                  child: Text(categories[index]),
+                  child: Text(
+                    categories[index],
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                 ),
                 itemCount: categories.length,
               ),
             ),
 
+            Row(
+              children: [
+                Text("Products", style: Theme.of(context).textTheme.titleLarge),
+              ],
+            ),
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -65,9 +125,13 @@ class HomeScreen extends StatelessWidget {
                     height: 60,
                     fit: BoxFit.cover,
                   ),
-                  title: Text(products[index].name),
+                  title: Text(
+                    products[index].name,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   subtitle: Text(
                     "${products[index].categpry} - ${products[index].price} ",
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ),

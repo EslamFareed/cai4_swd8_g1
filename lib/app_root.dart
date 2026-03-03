@@ -1,4 +1,6 @@
 import 'package:cai4_swd8_g1/screens/main_screen.dart';
+import 'package:cai4_swd8_g1/screens/respons_screen.dart';
+import 'package:cai4_swd8_g1/screens/stack_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -9,9 +11,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {"main": (_) => MainScreen()},
-      initialRoute: "main",
+      routes: {
+        "main": (_) => MainScreen(),
+        "respons": (_) => ResponsScreen(),
+        "sst": (_) => StackScreen(),
+      },
+      initialRoute: "sst",
       theme: ThemeData(
+        textTheme: TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          bodyMedium: TextStyle(fontSize: 16, color: Colors.grey),
+        ),
+
         scaffoldBackgroundColor: const Color.fromARGB(255, 237, 237, 237),
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.deepOrange,
