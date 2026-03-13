@@ -1,8 +1,6 @@
-import 'package:cai4_swd8_g1/screens/main_screen.dart';
-import 'package:cai4_swd8_g1/screens/respons_screen.dart';
-import 'package:cai4_swd8_g1/screens/stack_screen.dart';
-
 import 'package:flutter/material.dart';
+
+import 'screens/provider_test_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,12 +9,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {
-        "main": (_) => MainScreen(),
-        "respons": (_) => ResponsScreen(),
-        "sst": (_) => StackScreen(),
-      },
-      initialRoute: "sst",
+      home: ProviderTestScreen(),
+      // routes: {
+      //   "main": (_) => MainScreen(),
+      //   "respons": (_) => ResponsScreen(),
+      //   "sst": (_) => StackScreen(),
+      // },
+      // initialRoute: "sst",
       theme: ThemeData(
         textTheme: TextTheme(
           titleLarge: TextStyle(

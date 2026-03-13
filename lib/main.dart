@@ -1,4 +1,7 @@
+import 'package:cai4_swd8_g1/providers/counter_provider.dart';
+import 'package:cai4_swd8_g1/providers/products_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'app_root.dart';
 
 //? Old Sessions
@@ -51,6 +54,22 @@ import 'app_root.dart';
 //! Stack
 //! Time And Date Picker
 
+//! State Management
+//! Provider
+
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        // ChangeNotifierProvider(create: (context) => CounterProvider()),
+        ChangeNotifierProvider(create: (context) => ProductsProvider()),
+      ],
+      child: MyApp(),
+    ),
+
+    // ChangeNotifierProvider(
+    //   create: (context) => CounterProvider(),
+    //   child: MyApp(),
+    // ),
+  );
 }
