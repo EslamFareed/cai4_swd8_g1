@@ -1,8 +1,7 @@
-import 'package:cai4_swd8_g1/cubits/counter_cubit.dart';
-import 'package:cai4_swd8_g1/cubits/users_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_root.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 //? Old Sessions
 //! MaterialApp
@@ -59,31 +58,17 @@ import 'app_root.dart';
 //! Cubit
 //! BLOC
 //! Shared Pref
-//! SQFLITE 
+//! SQFLITE
 
-void main() {
-  runApp(
-    // BlocProvider(create: (context) => CounterCubit(), child: MyApp()),
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => CounterCubit()),
-        BlocProvider(create: (context) => UsersCubit()),
-        // BlocProvider(create: (context) => SubjectBloc()),
-      ],
-      child: MyApp(),
-    ),
+//! What is Firebase ?
+//! Setup + installing
+//! Auth
+//! Firestore
 
-    // MultiProvider(
-    //   providers: [
-    //     // ChangeNotifierProvider(create: (context) => CounterProvider()),
-    //     ChangeNotifierProvider(create: (context) => ProductsProvider()),
-    //   ],
-    //   child: MyApp(),
-    // ),
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-    // ChangeNotifierProvider(
-    //   create: (context) => CounterProvider(),
-    //   child: MyApp(),
-    // ),
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(MyApp());
 }

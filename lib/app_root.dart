@@ -1,6 +1,5 @@
-import 'package:cai4_swd8_g1/screens/counter_screen.dart';
+import 'package:cai4_swd8_g1/features/products/products_screen.dart';
 import 'package:flutter/material.dart';
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterScreen(),
+      home: ProductsScreen(),
       // routes: {
       //   "main": (_) => MainScreen(),
       //   "respons": (_) => ResponsScreen(),
