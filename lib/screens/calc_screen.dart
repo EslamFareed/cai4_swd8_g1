@@ -15,7 +15,7 @@ class _CalcScreenState extends State<CalcScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("Calc")),
       body: Column(
-        children: [
+        children: [          
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

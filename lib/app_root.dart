@@ -1,6 +1,6 @@
+import 'package:cai4_swd8_g1/screens/counter_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/provider_test_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProviderTestScreen(),
+      home: CounterScreen(),
       // routes: {
       //   "main": (_) => MainScreen(),
       //   "respons": (_) => ResponsScreen(),

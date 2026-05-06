@@ -1,7 +1,7 @@
-import 'package:cai4_swd8_g1/providers/counter_provider.dart';
-import 'package:cai4_swd8_g1/providers/products_provider.dart';
+import 'package:cai4_swd8_g1/cubits/counter_cubit.dart';
+import 'package:cai4_swd8_g1/cubits/users_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_root.dart';
 
 //? Old Sessions
@@ -53,19 +53,33 @@ import 'app_root.dart';
 //! Drawer
 //! Stack
 //! Time And Date Picker
-
 //! State Management
 //! Provider
+//! DIO
+//! Cubit
+//! BLOC
+//! Shared Pref
+//! SQFLITE 
 
 void main() {
   runApp(
-    MultiProvider(
+    // BlocProvider(create: (context) => CounterCubit(), child: MyApp()),
+    MultiBlocProvider(
       providers: [
-        // ChangeNotifierProvider(create: (context) => CounterProvider()),
-        ChangeNotifierProvider(create: (context) => ProductsProvider()),
+        BlocProvider(create: (context) => CounterCubit()),
+        BlocProvider(create: (context) => UsersCubit()),
+        // BlocProvider(create: (context) => SubjectBloc()),
       ],
       child: MyApp(),
     ),
+
+    // MultiProvider(
+    //   providers: [
+    //     // ChangeNotifierProvider(create: (context) => CounterProvider()),
+    //     ChangeNotifierProvider(create: (context) => ProductsProvider()),
+    //   ],
+    //   child: MyApp(),
+    // ),
 
     // ChangeNotifierProvider(
     //   create: (context) => CounterProvider(),
