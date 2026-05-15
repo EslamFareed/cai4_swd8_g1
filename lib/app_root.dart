@@ -1,4 +1,4 @@
-import 'package:cai4_swd8_g1/features/products/products_screen.dart';
+import 'package:cai4_swd8_g1/animation/animation_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProductsScreen(),
+      home: AnimationScreen(),
       // routes: {
       //   "main": (_) => MainScreen(),
       //   "respons": (_) => ResponsScreen(),

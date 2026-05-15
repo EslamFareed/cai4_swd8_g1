@@ -26,12 +26,58 @@ class _ProductsScreenState extends State<ProductsScreen> {
   List<Map<String, dynamic>> products = [];
 
   getProducts() async {
-    final querySnapShot = await db.collection("products").get();
-    for (var doc in querySnapShot.docs) {
-      products.add(doc.data());
-    }
+    var stream = db.collection("products").snapshots();
 
-    setState(() {});
+    var subsc = stream.listen(
+      (data) {
+        products.clear();
+        for (var doc in data.docs) {
+          products.add(doc.data());
+        }
+
+        setState(() {});
+      },
+
+      onDone: () {},
+
+      onError: (e) {},
+    );
+
+    // final querySnapShot = await db.collection("products").get();
+    // for (var doc in querySnapShot.docs) {
+    //   products.add(doc.data());
+    //   print(doc.id);
+    // }
+  }
+
+  createProduct() {
+    // Auto Gen ID
+    db.collection("products").add({
+      "name": "Screen",
+      "price": 1000.0,
+      "image": "",
+    });
+
+    // Custom ID
+    db.collection("products").doc("1").set({
+      "name": "Screen",
+      "price": 1000.0,
+      "image": "",
+    });
+  }
+
+  editProduct() {
+    db.collection("products").doc("1").set({
+      "name": "Screen",
+      "price": 1000.0,
+      "image": "",
+    });
+
+    db.collection("products").doc("1").update({"price": 1000.0});
+  }
+
+  deleteProduct() {
+    db.collection("procuts").doc("1").delete();
   }
 
   @override
